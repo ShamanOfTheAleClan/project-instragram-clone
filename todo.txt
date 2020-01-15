@@ -1,0 +1,21 @@
+1. Registracija
+2. Login
+3.1. Postai. Iðsaugoti failà
+3.2. Like
+3.3. hashtag
+4. komentarai -> likint
+5. Follow
+6. Matyt, kas palaikino
+7. private/public profile
+8. admin rights
+9. Story
+10. PM
+
+
+
+---Pages---
+1. Registration
+2. Log in
+3. Post (su komentarais)
+4. Visi postai
+5. 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +14,49 @@
             justify-content: center;
             height: 100vh;
         }
-
     </style>
 </head>
+
 <body>
-    
-    <form action="" method="post" accept='.gif,.jpg,.jpeg,.png' class="form">
+
+    <form class="form">
         <div class="form-wrapper">
-            <input type="file" name="" id="" class="input">
+            <input type="file" name="" id="submitedFile" class="input">
         </div>
+        <input type="submit" value="Upload" class='input-submit' id='submitBtn'>
     </form>
 
 </body>
+<script>
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let submitetFile = document.getElementById('submitedFile');
+        let token = localStorage.getItem('x-auth');
+        let data = new FormData()
+        data.append('avatar', submitetFile.files[0])
+
+
+        fetch('http://localhost:3000/instagram/user/uploadFile', {
+            method: 'POST',
+            body: data,
+            headers: {
+                
+                'x-auth': token,
+            }
+        }).then((response) => {
+            if (response) {
+                window.alert('File uploaded');
+            }
+        }).catch((error) => {
+            window.alert(error);
+        })
+
+    })
+
+</script>
+
 </html>

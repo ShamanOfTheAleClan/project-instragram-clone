@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/IGDB',{
+mongoose.connect('mongodb://localhost:27017/IGDB', {
 
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -14,28 +14,37 @@ mongoose.connect('mongodb://localhost:27017/IGDB',{
 
 })
 
+app.use('/uploads', express.static('Back/uploadedFiles'));
+
 const corsOptions = {
     exposedHeaders: ['x-auth']
 }
 
 app.use(bodyParser.urlencoded({
-
-    extended: false
-
+    extended: true,
 }));
 
-app.use(cors(corsOptions))
+app.use(bodyParser.json({
+    limit: '50mb'
+}));
 
-app.use(bodyParser.json())
+app.use(cors(corsOptions));
 
-app.get('/', (request , response) => {
+app.use(bodyParser.json());
 
-response.json('testas');
+
+
+
+app.get('/', (request, response) => {
+
+    response.json('testas');
 });
 
 
+
+
 // app.use('/api/v1', router)
-app.use('/', router)
+app.use('/instagram', router)
 
 
-app.listen(3000)
+app.listen(3000);

@@ -10,7 +10,11 @@ router.get('/', (req, res) => {
 
 // user routes
 router.post('/user/register', userController.registerUser);
-router.post('/user/login', userController.login)
-//toDoList routes
+router.post('/user/login', userController.login);
+router.post('/user/uploadFile', middleware.authenticate, userController.uploadFile);
+
+
+
+
 
 module.exports = router

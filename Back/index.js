@@ -35,7 +35,7 @@ response.json('testas');
 
 
 // app.use('/api/v1', router)
-app.use('/instagram', router)
+app.use('/', router)
 
 
 app.listen(3000)

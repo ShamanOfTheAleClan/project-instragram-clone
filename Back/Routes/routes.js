@@ -24,10 +24,11 @@ let fileFilter = function (req, file, cb) {
     if (allowedMimes.includes(file.mimetype)) {
         cb(null, true);
     } else {
-        cb({
-            success: false,
-            message: 'Invalid file type. Only jpg, png image files are allowed.'
-        }, false);
+        // req.fileTypeError = true;
+        // cb('Invalid file type. Only jpg, png image files are allowed.', true);
+        // cb(null,true);
+        // cb()
+        cb(new Error('Invalid file type'), false);
     }
 };
 

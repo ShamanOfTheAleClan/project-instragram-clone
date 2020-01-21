@@ -15,7 +15,17 @@ const createComment = async(req, res) => {
     }
 
 }
+const getAllComments=async (req, res) => {
+    try {
+        let comments = await Comment.find()
+        res.json(comments)
+    } catch (e) {
+        res.status(400).json(e)
+    }
+}
+
 
 module.exports = {
-    createComment
+    createComment,
+    getAllComments
 }

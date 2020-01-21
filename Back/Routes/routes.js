@@ -14,6 +14,7 @@ router.post('/user/register', userController.registerUser);
 router.post('/user/login', userController.login)
 //comment routes
 router.post('/comment/create',middleware.authenticate, commentController.createComment)
-
+//get all comments
+router.get('/comment/getAllComments',middleware.authenticate, commentController.getAllComments)
 
 module.exports = router

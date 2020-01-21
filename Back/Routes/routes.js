@@ -1,5 +1,7 @@
 const router = require("express").Router()
 const userController = require('../User/userController')
+const commentController = require('../Comment/commentController')
+const postController = require('../Post/postController')
 const middleware = require('../middleware/middleware')
 router.get('/', (req, res) => {
 
@@ -11,6 +13,11 @@ router.get('/', (req, res) => {
 // user routes
 router.post('/user/register', userController.registerUser);
 router.post('/user/login', userController.login)
-//toDoList routes
+// comments routes
+router.post('/comment/create', middleware.authenticate, commentController.createComment);
+
+//post routes
+router.post('/post/create', middleware.authenticate, postController.createPost);
+
 
 module.exports = router

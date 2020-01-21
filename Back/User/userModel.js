@@ -14,8 +14,22 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-
     },
+    /*admin: Boolean,
+    profPic: {
+        type: String,//bus saugomas URL?
+        required: true,
+    },
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Likes' }],
+    following: [{
+        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+        username: { type: String, ref: 'Users' }
+    }],
+    followers: [{
+        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+        username: { type: String, ref: 'Users' }
+    }],*/
     tokens: [{
         access: {
             type: String,
@@ -31,7 +45,7 @@ const userSchema = new mongoose.Schema({
 })
 
 
-userSchema.pre('save', function (next)  {
+userSchema.pre('save', function (next) {
     let user = this;
     if (user.isModified('password')) {
         bcrypt.genSalt(10, (error, salt) => {

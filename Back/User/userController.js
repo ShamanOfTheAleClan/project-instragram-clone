@@ -75,18 +75,33 @@ const login = async (req, res) => {
 }
 
 
-const uploadFile = (request, response) => {
+const uploadFile = async (request, response) => {
 
     let data = request.body;
-    
-    console.log(request.file);
+    console.log('****************************************');
+    console.log('Uploaded file: ', request.file);
     try {
+        // patikrint, ar uploadintas failas atsirado serveryje;
+        // Prideti uploadinto photo id prie userio
 
+        
+        let user = request.user;
+        let filename = request.file.filename;
+
+        user.photos.push({
+            filename
+        })
+        console.log('--------------------------');
+        console.log('Uploaded by: ', user);
+        console.log('****************************************');
+
+        // if (request.file) response.json(true);
     } catch (error) {
         response.status(400).json(error);
     }
 
 }
+
 
 module.exports = {
     registerUser,

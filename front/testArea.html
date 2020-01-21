@@ -48,10 +48,10 @@
                 'x-auth': token,
             }
         }).then((response) => {
-            if (response) {
-                window.alert('File uploaded');
-            }
+            
+                console.log(response);
         }).catch((error) => {
+            console.log(error.message);
             window.alert(error);
         })
 

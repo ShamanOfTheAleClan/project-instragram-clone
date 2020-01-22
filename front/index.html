@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +8,58 @@
   <title>Document</title>
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Open+Sans" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script>
-  <link rel="stylesheet" href="/front/assets/css/prod.css">
+  <!-- <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script> -->
+  <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
+
 <body>
-  <header>
-      <div class="header-container">
-    <div class="logo">
-          <i class ="fab fa-2x fa-instagram"></i>
-          <div class="vertical-line"></div>
-          <span class = "hidden">Instagram</span>
-        
-    </div>
-    <div class="desktop">
-      <div class="search-container">
-        <i class="fa fa-search search-icon"></i></input>
-        <input class = "search-bar" placeholder=" Search">
-      </div>
-       
-    </div>
-    <div class="icons">
-        <span><i class="far fa-compass"></i></span>
-        <span><i class="far fa-heart"></i></span>
-        <span><i class="far fa-user"></i></span>
-        
-      </div>
-  </div>
+
+  <header class='header'>
+
+    <div class="header__icon header__icon--take-picture"></div>
+    <div class="header__icon header__icon--logo"></div>
+    <div class="header__icon header__icon--feed"></div>
+
   </header>
 
-  <section class = "card-container">
-    <div class="card">
-      <div class="card-user">
-          <img src="/front/images/dummy.jpg" alt="" class = "sm-img">
-          <div class="card-username">
-          huffpost
-        </div>
-      </div>
-      <img src="/front/images/dummy.jpg" alt="" class = "card-image">
-      <div class="comment-section">
-        <div class="social-icons">
-          <div><span class = "like-button"><i class="far fa-heart"></i></span>
-          <span class = "comment-button"><i class="far fa-comment"></i></span>
-        </div>
-          <i class="far fa-bookmark"></i>
-        </div>
-      </div>
-      <div class="like-section">
-        <span class = "counter">0</span>
-        <span>likes</span>
-      </div>
-      <div class="comments">
+  <section class="feed">
+    <article class="post">
 
+      <div class="post-author">
+        <div class="post-author__avatar" style="background-image: url('')"></div>
+        <p class="post-author__name"></p>
       </div>
-      <div class="add-a-comment">
-        <input id="comment" class="input-a-comment" type="text" placeholder = "Add a comment...">
-        <i class="fas fa-ellipsis-h"></i>
+
+      <img class="post-image" src="./assets/images/test.png">
+
+      <div class="post-interactions">
+        <div class="post-interactions__like"></div>
+        <div class="post-interactions__comment"></div>
+        <div class="post-interactions__share"></div>
+        <p class="post-interactions__like-count"></p>
       </div>
-    </div>
-   
+
+      <div class="post-comments">
+        <div class="comment">
+          <p class="comment__author"></p>
+          <p class="comment__content"></p>
+        </div>
+      </div>
+
+    </article>
   </section>
 
   <footer class='footer'>
 
-    <div class="footer-item_home"></div>
-    <div class="footer-item_search"></div>
-    <div class="footer-item_upload"></div>
-    <div class="footer-item_activity"></div>
-    <div class="footer-item_profile"></div>
+    <div class="footer__item footer__item--home current"></div>
+    <div class="footer__item footer__item--search"></div>
+    <div class="footer__item footer__item--upload"></div>
+    <div class="footer__item footer__item--activity"></div>
+    <div class="footer__item footer__item--profile"></div>
 
   </footer>
-  <script src="/front/JS/feed.js"></script>
+
+  <script src="./assets/js/prod.js"></script>
 </body>
+
 </html>

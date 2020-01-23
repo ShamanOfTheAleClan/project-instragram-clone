@@ -1,10 +1,10 @@
-//const mongoose = require('mongoose');
 const Comment= require('./commentModel')
 
 const createComment = async(req, res) => {
     console.log(req.user);
     let data = req.body;
     let comment= new Comment();
+   // comment.post=req.post._id;
     comment.comment=data.comment;
    comment.user=req.user._id;
     try{
@@ -17,7 +17,9 @@ const createComment = async(req, res) => {
 }
 const getAllComments=async (req, res) => {
     try {
-        let comments = await Comment.find().populate('user')
+        let comments = await Comment.find()
+        .populate('user')
+        //.populate('post')
         res.json(comments)
     } catch (e) {
         res.status(400).json(e)

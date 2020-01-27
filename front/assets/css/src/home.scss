@@ -36,7 +36,7 @@
 
     &__name {
         padding-left: 10px;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 14px;
     }
 }
@@ -52,6 +52,7 @@
     &__like-count {
         font-size: 14px;
         margin-top: 10px;
+        font-weight: 700;
     }
 }
 
@@ -95,5 +96,17 @@
 }
 
 .comment {
-    
+
+    &__author {
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        color: #262626;
+        margin-right: 5px;
+    }
+
+    &__content {
+        font-size: 14px;
+        font-weight: 400;
+    }
 }

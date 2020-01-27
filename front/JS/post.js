@@ -9,14 +9,14 @@ const checkifLoggedIn = () => {
 checkifLoggedIn();
 //matosi tik ant 1 vartotojo
 
-const createComment = () => {
+const createComment = (postId) => {
     
     let newComment = document.getElementById('comment').value
-    
+    console.log(postId)
     let token = localStorage.getItem('x-auth');
     let body = {
-        comment: newComment
-        
+        comment: newComment,
+        postId:postId
     }
     
     fetch('http://localhost:3000/instagram/comment/create', {
@@ -134,7 +134,7 @@ const drawPosts = () => {
             
             commentButton.addEventListener("click",()=>{
                 newCommentInput.setAttribute("id", "comment")
-                createComment();
+                createComment(myJson[i]._id);
             console.log(i)
                 newCommentInput.removeAttribute("id")
               //location.reload();

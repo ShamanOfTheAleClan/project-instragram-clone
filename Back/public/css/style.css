@@ -1,0 +1,51 @@
+* {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.form-control input {
+  width: 300px;
+  height: 30px;
+  margin: 15px 0;
+}
+
+.form-control label {
+  font-size: 17px;
+}
+
+.form-control textarea {
+  width: 300px;
+  height: 100px;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  font-size: 17px;
+  border-radius: 5px;
+}

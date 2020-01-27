@@ -1,0 +1,62 @@
+.profile-hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 15px;
+    border-bottom: 1px solid #efefef;
+}
+
+.profile-info {
+    flex-grow: 1;
+
+    &__username {
+        font-size: 28px;
+        font-weight: 300;
+    }
+}
+
+.button {
+
+    &--edit-profile {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+.user-image--profile {
+    width: 77px;
+    height: 77px;
+    margin-right: 30px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #efefef;
+
+    &__stat {
+        width: 33.3%;
+    }
+}
+
+.count {
+
+    &--tag {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #999;
+    }
+}
+
+.profile-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery-photo {
+    width: 32vw;
+    height: 32vw;
+    background-size: cover;
+}

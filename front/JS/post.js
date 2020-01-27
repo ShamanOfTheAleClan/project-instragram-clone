@@ -41,6 +41,51 @@ const createComment = (postId) => {
 };
 
 
+
+// const createComments = () => {
+//     let list = document.getElementsByClassName('comments');
+//     let token = localStorage.getItem('x-auth');
+//     list.innerHTML = '';
+//     fetch('http://localhost:3000/instagram/comment/getAllComments', {
+//         method: 'GET',
+//         headers: {
+//             'x-auth': token,
+//             'Content-Type': 'application/json'
+//         }
+//     }).then((response) => {
+//         //console.log(response);
+//         if (!response.ok) {
+//             throw Error(response);
+//         }
+//         return response.json();
+//     }).then((myJson) => {
+//         console.log(myJson)
+//         let div = document.getElementsByClassName("comments");
+//         div.innerHTML = '';
+//         let ul= document.createElement('ul');
+//          for (let i = 0; i < myJson.length; i++) {
+//             let li = document.createElement('li');
+//             let p = document.createElement('p');
+//             p.textContent = myJson[i].user.username +"  "+ myJson[i].comment;
+//             li.appendChild(p);
+//             ul.appendChild(li);   
+//         }
+//         document.getElementsByClassName('comments')[0].appendChild(ul);
+        
+//     }).catch((e) => {
+//         console.log(e);
+//     })
+   
+// };
+// createComments();
+
+
+const commentBtn = document.getElementById('postComment')
+commentBtn.addEventListener('click', () => {
+    createComment();
+    location.reload();
+})
+
 const drawPosts = () => {
     //let list = document.getElementsByClassName('comments');
     let token = localStorage.getItem('x-auth');
@@ -110,6 +155,16 @@ const drawPosts = () => {
            description.textContent=myJson[i].user.username+"    "+myJson[i].postDescription
            let commentsDiv=document.createElement('div')
            commentsDiv.setAttribute('class','comments')
+           let allPostComments=myJson[i].comments.length
+           console.log(allPostComments)
+           for (j=0; j<allPostComments; j++){
+               let oneCommentDiv=document.createElement('div')
+               //nerodo vardo tik user id
+           oneCommentDiv.textContent=myJson[i].comments[j].user+": " +myJson[i].comments[j].comment
+           console.log(myJson[i].comments[j].user)
+           commentsDiv.appendChild(oneCommentDiv)
+           }
+         
            let newCommentDiv=document.createElement('div')
            newCommentDiv.setAttribute('class','add-a-comment')
             const newCommentInput=document.createElement('input')
@@ -138,7 +193,7 @@ const drawPosts = () => {
             console.log(i)
                 newCommentInput.removeAttribute("id")
               //location.reload();
-
+              
             }           
             
             )

@@ -41,48 +41,48 @@
    
 // };
 
-const createComments = () => {
-    let list = document.getElementsByClassName('comments');
-    let token = localStorage.getItem('x-auth');
-    list.innerHTML = '';
-    fetch('http://localhost:3000/instagram/comment/getAllComments', {
-        method: 'GET',
-        headers: {
-            'x-auth': token,
-            'Content-Type': 'application/json'
-        }
-    }).then((response) => {
-        //console.log(response);
-        if (!response.ok) {
-            throw Error(response);
-        }
-        return response.json();
-    }).then((myJson) => {
-        console.log(myJson)
-        let div = document.getElementsByClassName("comments");
-        div.innerHTML = '';
-        let ul= document.createElement('ul');
-         for (let i = 0; i < myJson.length; i++) {
-            let li = document.createElement('li');
-            let p = document.createElement('p');
-            p.textContent = myJson[i].user.username +"  "+ myJson[i].comment;
-            li.appendChild(p);
-            ul.appendChild(li);   
-        }
-        document.getElementsByClassName('comments')[0].appendChild(ul);
+// const createComments = () => {
+//     let list = document.getElementsByClassName('comments');
+//     let token = localStorage.getItem('x-auth');
+//     list.innerHTML = '';
+//     fetch('http://localhost:3000/instagram/comment/getAllComments', {
+//         method: 'GET',
+//         headers: {
+//             'x-auth': token,
+//             'Content-Type': 'application/json'
+//         }
+//     }).then((response) => {
+//         //console.log(response);
+//         if (!response.ok) {
+//             throw Error(response);
+//         }
+//         return response.json();
+//     }).then((myJson) => {
+//         console.log(myJson)
+//         let div = document.getElementsByClassName("comments");
+//         div.innerHTML = '';
+//         let ul= document.createElement('ul');
+//          for (let i = 0; i < myJson.length; i++) {
+//             let li = document.createElement('li');
+//             let p = document.createElement('p');
+//             p.textContent = myJson[i].user.username +"  "+ myJson[i].comment;
+//             li.appendChild(p);
+//             ul.appendChild(li);   
+//         }
+//         document.getElementsByClassName('comments')[0].appendChild(ul);
         
-    }).catch((e) => {
-        console.log(e);
-    })
+//     }).catch((e) => {
+//         console.log(e);
+//     })
    
-};
-createComments();
+// };
+// createComments();
 
 
-const commentBtn = document.getElementById('postComment')
-commentBtn.addEventListener('click', () => {
-    createComment();
-    location.reload();
-})
+// const commentBtn = document.getElementById('postComment')
+// commentBtn.addEventListener('click', () => {
+//     createComment();
+//     location.reload();
+// })
 
 

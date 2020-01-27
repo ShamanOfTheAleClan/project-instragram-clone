@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 //const bcrypt= require('./node_modules/bcrypt');
 
 const CommentSchema = new mongoose.Schema({
-    // post: {
-    //     type: mongoose.Schema.Types.ObjectId, 
-    //     ref: 'Posts',
-    //     //required: true
+    post: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Posts'
+    // required: true
       
-    //  },
+     },
     comment:{
         type:String,
         required:true

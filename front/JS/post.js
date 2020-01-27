@@ -1,32 +1,45 @@
+const checkifLoggedIn = () => {
+    let token = localStorage.getItem('x-auth');
+    console.log(token)
+    if (!token) {
+        window.location.href = "../login.html";
+    }
+};
 
-// const createPost = () => {
+checkifLoggedIn();
+//matosi tik ant 1 vartotojo
+
+const createComment = () => {
     
-//     let newPost = document.getElementById('comment').value;
-//     let token = localStorage.getItem('x-auth');
-//     let body = {
-//         comment: newComment,
+    let newComment = document.getElementById('comment').value
+    
+    let token = localStorage.getItem('x-auth');
+    let body = {
+        comment: newComment
         
-//     }
-//     fetch('http://localhost:3000/instagram/comment/create', {
-//         method: 'POST',
-//         body: JSON.stringify(body),
-//         headers: {
-//             'x-auth': token,
-//             'Content-Type': 'application/json'
-//         }
-//     }).then((header) => {
-//         console.log(header);
-//         if (!header.ok) {
-//             throw Error(header);
-//         }
-//     }).then((response) => {
-//         alert('Item added successfully')
-//     }).catch((e) => {
-//         console.log(e);
-//         alert('Adding failed');
-//     })
+    }
+    
+    fetch('http://localhost:3000/instagram/comment/create', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'x-auth': token,
+            'Content-Type': 'application/json'
+        }
+    }).then((header) => {
+        //console.log(header);
+        if (!header.ok) {
+            throw Error(header);
+        }
+    }).then((response) => {
+        alert('Item added successfully')
+    }).catch((e) => {
+       // console.log(e);
+        alert('Adding failed');
+    })
    
-// };
+};
+
 
 const drawPosts = () => {
     //let list = document.getElementsByClassName('comments');
@@ -45,7 +58,7 @@ const drawPosts = () => {
         }
         return response.json();
     }).then((myJson) => {
-        console.log(myJson)
+        //console.log(myJson)
         let content=document.createElement('div')
         content.setAttribute('class', 'card-container')
         for (let i = 0; i < myJson.length; i++) {
@@ -99,17 +112,16 @@ const drawPosts = () => {
            commentsDiv.setAttribute('class','comments')
            let newCommentDiv=document.createElement('div')
            newCommentDiv.setAttribute('class','add-a-comment')
-            let newCommentInput=document.createElement('input')
+            const newCommentInput=document.createElement('input')
             newCommentInput.setAttribute("type", "text")
-            //newCommentInput.setAttribute("id", "comment")
+            
             newCommentInput.setAttribute("class", "input-a-comment")
             newCommentInput.setAttribute("placeholder", "Add a comment..")
             newCommentDiv.appendChild(newCommentInput)
-            let commentButton=document.createElement('button')
+            const commentButton=document.createElement('button')
             commentButton.innerText="Post"
-            commentButton.setAttribute('id', 'postComment')
-          //  newCommentDiv.appendChild(commentButton)
-
+            commentButton.setAttribute('class', 'postComment')
+            newCommentDiv.appendChild(commentButton)
 
             div.appendChild(userInfo)
             div.appendChild(postPicture)
@@ -120,10 +132,27 @@ const drawPosts = () => {
             div.appendChild(newCommentDiv)
             content.appendChild(div)
             
+            commentButton.addEventListener("click",()=>{
+                newCommentInput.setAttribute("id", "comment")
+                createComment();
+            console.log(i)
+                newCommentInput.removeAttribute("id")
+              //location.reload();
+
+            }           
+            
+            )
             
         }
         document.getElementsByClassName('card-container')[0].appendChild(content);
         
+       
+
+
+
+
+
+
     }).catch((e) => {
         console.log(e);
     })

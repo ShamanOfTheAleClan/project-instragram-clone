@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Open+Sans" rel="stylesheet">
-  <!-- <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
 
@@ -18,33 +16,41 @@
 
     <div class="header__icon header__icon--take-picture"></div>
     <div class="header__icon header__icon--logo"></div>
-    <div class="header__icon header__icon--feed"></div>
+    <div class="header__icon header__icon--messaging"></div>
 
   </header>
 
   <section class="feed">
     <article class="post">
 
-      <div class="post-author">
-        <div class="post-author__avatar" style="background-image: url('')"></div>
-        <p class="post-author__name"></p>
+      <div class="post-header">
+        <a href="" class="post-author">
+          <div class="post-author__avatar" style="background-image: url('./assets/images/user.jpg')"></div>
+          <p class="post-author__name">user_OG</p>
+        </a>
       </div>
+
 
       <img class="post-image" src="./assets/images/test.png">
 
       <div class="post-interactions">
-        <div class="post-interactions__like"></div>
-        <div class="post-interactions__comment"></div>
-        <div class="post-interactions__share"></div>
-        <p class="post-interactions__like-count"></p>
+        <div class="interaction-icons">
+          <div class="interaction-icons__like"></div>
+          <div class="interaction-icons__comment"></div>
+          <div class="interaction-icons__share"></div>
+        </div>
+        <p class="post-interactions__like-count">8,344 likes</p>
+
+        <div class="post-comments">
+          <div class="comment">
+            <p class="comment__author">catFan</p>
+            <p class="comment__content">OMG sooooo true!!!</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="post-comments">
-        <div class="comment">
-          <p class="comment__author"></p>
-          <p class="comment__content"></p>
-        </div>
-      </div>
+
 
     </article>
   </section>

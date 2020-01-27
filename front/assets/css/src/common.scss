@@ -1,3 +1,9 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: #262626;
+    padding-bottom: 45px;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -6,6 +12,7 @@
     left: 0;
     right: 0;
     border-bottom: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .footer {

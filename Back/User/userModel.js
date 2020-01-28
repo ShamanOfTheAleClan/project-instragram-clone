@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
         required: true,
 
     },
+    photos: [{
+        filename: String,
+    }],
     tokens: [{
         access: {
             type: String,
@@ -26,8 +29,6 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
-
-
 })
 
 

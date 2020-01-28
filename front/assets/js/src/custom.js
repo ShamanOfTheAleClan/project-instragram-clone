@@ -1,3 +1,4 @@
+// Profile page -> Options
 const optionsCloseBtn = document.getElementById('optionsCloseBtn');
 const optionsOpenBtn = document.getElementById('optionsOpenBtn');
 const optionsWindow = document.getElementById('optionsWindow');
@@ -8,4 +9,5 @@ optionsCloseBtn.addEventListener('click', () => {
 
 optionsOpenBtn.addEventListener('click', () => {
     optionsWindow.style.removeProperty('display');
-})
+});
+

@@ -160,8 +160,8 @@ const drawPosts = () => {
            for (j=0; j<allPostComments; j++){
                let oneCommentDiv=document.createElement('div')
                //nerodo vardo tik user id
-           oneCommentDiv.textContent=myJson[i].comments[j].user+": " +myJson[i].comments[j].comment
-           console.log(myJson[i].comments[j].user)
+           oneCommentDiv.textContent=myJson[i].comments[j].user.username+": " +myJson[i].comments[j].comment
+           console.log('User: ', myJson[i].comments[j])
            commentsDiv.appendChild(oneCommentDiv)
            }
          

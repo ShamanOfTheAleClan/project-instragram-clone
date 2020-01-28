@@ -21,9 +21,10 @@ const getAllPosts=async (req, res) => {
         .populate('user')
         .populate({
            path: "comments",
-         options: {limit:5}
-
+         options: {limit:5},
+         populate: { path: 'user' }
          })
+        
        
         res.json(posts)
     } catch (e) {

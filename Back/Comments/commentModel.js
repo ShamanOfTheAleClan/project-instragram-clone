@@ -17,6 +17,10 @@ const CommentSchema = new mongoose.Schema({
        ref: 'Users'
        
     }
+    // username:{
+    //     type: mongoose.Schema.Types.ObjectId.username,
+    //     ref: 'Users'
+    // }
     // reply: {
     //     type: Boolean,
     //     default: false

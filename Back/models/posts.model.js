@@ -18,9 +18,11 @@ const getPostsFromFile = cb => {
 };
 
 module.exports = class Post {
-  constructor(title, description) {
+  constructor(title, description, hashtags) {
     this.title = title;
+    // this.addImg = req.file.path;
     this.description = description;
+    this.hashtags = hashtags;
   }
 
   save() {

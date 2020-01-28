@@ -14,7 +14,7 @@
 
   <header class='header'>
 
-    <div class="header__icon header__icon--options"></div>
+    <div class="header__icon header__icon--options" id="optionsOpenBtn"></div>
     <div class="header__icon header__icon--user">user_OG</div>
     <div class="header__icon header__icon--add-friend"></div>
 
@@ -47,6 +47,18 @@
 
     <div class="gallery-photo" style="background-image:url('./assets/images/test.png')">
 
+  </section>
+
+  <section class="options" id="optionsWindow" style='display: none'>
+    <header class="options-header">
+      <div class="options-header__close-btn" id="optionsCloseBtn"></div>
+      <h1 class="options-header__headline">Options</h1>
+    </header>
+
+    <div class="options-item">
+      <p class="options-item__text options-item__text--red">Log Out</p>
+      <div class="options-item__arrow"></div>
+    </div>
   </section>
 
   <footer class='footer'>

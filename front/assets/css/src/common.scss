@@ -67,6 +67,7 @@ body {
 .user-image {
     border-radius: 50%;
     background: center/cover no-repeat;
+    flex-shrink: 0;
 }
 
 .button {

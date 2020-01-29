@@ -108,3 +108,16 @@ if (!!loginPage) {
 
     loginBtn.addEventListener('click', login);
 }
+
+
+// Comments page
+
+const commentsPage = document.getElementById('commentsPage');
+
+if (!!commentsPage) {
+    const backBtn = document.getElementById('commentsBackBtn');
+
+    backBtn.addEventListener('click', () => {
+        window.location.href = "index.html";
+    })
+}

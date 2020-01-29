@@ -5,28 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>register</title>
+    <title>Register</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
 
-<body>
+<body class="login">
 
-        <input type="email" name="email" id="registerEmail">
+    <h1>
+        <div class="header__icon header__icon--logo-big">
+        </div>
+    </h1>
 
-        <input type="text" name="username" id="registerUsername">
+    <input class="input" type="email" name="email" id="registerEmail" placeholder="Email">
+    <input class="input" type="text" name="username" id="registerUsername" placeholder="Username">
+    <input class="input" type="text" name="password" id="registerPassword" placeholder="Password">
+    <input class="input" type="text" name="rpassword" id="registerRPassword" placeholder="Repeat password">
+    
+    <button class="button button--blue" id="registerSubmitBtn">Sign Up</button>
 
-        <input type="text" name="password" id="registerPassword">
-
-        <input type="text" name="rpassword" id="registerRPassword">
-        <button id="registerSubmitBtn">Sign Up</button>
-
-        <footer class="footer footer--blue">
-            Have an account? <a href="/login.html">Log in</a>
-        </footer>
+    <footer class="footer footer--blue">
+        <a href="/login.html" class='link link--white'>Have an account? &nbsp; Log in</a>
+    </footer>
 
 
-        <script src="./assets/js/prod.js"></script>
+    <script src="./assets/js/prod.js"></script>
 </body>
 
 </html>

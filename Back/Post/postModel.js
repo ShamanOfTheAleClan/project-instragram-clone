@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
-
 const postSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId, ref: "Users",
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users',
         required: true
     },
     postPic: {
@@ -17,9 +17,8 @@ const postSchema = new mongoose.Schema({
         type: String
     }],
     likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Users' }],
-    comments:[{type:mongoose.Schema.ObjectId, ref:'Comments'}]
+    comments:[{type:mongoose.Schema.ObjectId, ref:'Comment'}]
 })
-
 
 let Post = mongoose.model('Posts', postSchema)
 

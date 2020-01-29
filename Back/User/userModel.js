@@ -30,6 +30,9 @@ const userSchema = new mongoose.Schema({
         _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
         username: { type: String, ref: 'Users' }
     }],*/
+    photos: [{
+        filename: String,
+    }],
     tokens: [{
         access: {
             type: String,
@@ -40,8 +43,6 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }]
-
-
 })
 
 

@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Open+Sans" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script>
-  <link rel="stylesheet" href="/front/css/feed.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
-<body>
-  <header>
-      <div class="header-container">
-    <div class="logo">
-          <i class ="fab fa-2x fa-instagram"></i>
-          <div class="vertical-line"></div>
-          <span class = "hidden">Instagram</span>
-        
-    </div>
-    <div class="desktop">
-      <div class="search-container">
-        <i class="fa fa-search search-icon"></i></input>
-        <input class = "search-bar" placeholder=" Search">
-      </div>
-       
-    </div>
-    <div class="icons">
-        <span><i class="far fa-compass"></i></span>
-        <span><i class="far fa-heart"></i></span>
-        <span><i class="far fa-user"></i></span>
-        
-      </div>
-  </div>
-  </header>
-  <section class = "card-container">
-    <div class="card">
-      <div class="card-user">
-          <img src="/front/images/dummy.jpg" alt="" class = "sm-img">
-          <div class="card-username">
-          huffpost
-        </div>
-      </div>
-      <img src="/front/images/dummy.jpg" alt="" class = "card-image">
-      <div class="comment-section">
-        <div class="social-icons">
-          <div><span class = "like-button"><i class="far fa-heart"></i></span>
-          <span class = "comment-button"><i class="far fa-comment"></i></span>
-        </div>
-          <i class="far fa-bookmark"></i>
-        </div>
-      </div>
-      <div class="like-section">
-        <span class = "counter">0</span>
-        <span>likes</span>
-      </div>
-      <div class="comments">
 
+<body>
+
+  <header class='header'>
+
+    <div class="header__icon header__icon--take-picture"></div>
+    <div class="header__icon header__icon--logo"></div>
+    <div class="header__icon header__icon--messaging"></div>
+
+  </header>
+
+  <section class="feed">
+    <article class="post">
+
+      <section class="post-header">
+        <a href="" class="post-author">
+          <div class="user-image user-image--post-author" style="background-image: url('./assets/images/user.jpg')"></div>
+          <p class="post-author__name">user_OG</p>
+        </a>
       </div>
-      <div class="add-a-comment">
-        <input id="comment" class="input-a-comment" type="text" placeholder = "Add a comment...">
-        <i class="fas fa-ellipsis-h"></i>
-      </div>
-    </div>
-   
+
+
+      <img class="post-image" src="./assets/images/test.png">
+
+      <section class="post-interactions">
+        <div class="interaction-icons">
+          <div class="interaction-icons__like"></div>
+          <div class="interaction-icons__comment"></div>
+          <div class="interaction-icons__share"></div>
+        </div>
+        <p class="count count--likes">8,344 likes</p>
+
+        <div class="post-comments">
+          <div class="comment">
+            <a href="" class="comment__author">catFan</a>
+            <span class="comment__content">OMG sooooo true!!! I love cats soo much </span>
+          </div>
+        </div>
+
+      </section>
+
+
+
+    </article>
   </section>
-  <script src="/front/JS/feed.js"></script>
+
+  <footer class='footer'>
+
+    <a class="footer__item footer__item--home current"></a>
+    <a class="footer__item footer__item--search"></a>
+    <a class="footer__item footer__item--upload"></a>
+    <a class="footer__item footer__item--activity"></a>
+    <a href="profile.html" class="footer__item footer__item--profile"></a>
+
+  </footer>
+
+  <script src="./assets/js/prod.js"></script>
 </body>
+
 </html>

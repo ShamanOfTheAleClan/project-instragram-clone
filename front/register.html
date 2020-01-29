@@ -1,48 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>register</title>
-        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Open+Sans" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script>
-        <link rel="stylesheet" href="/front/css/register.css">
+    <title>Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
-<body>
-    <div class="container">
-        
-        <h1 class = "branding">Instagram</h1>
-        <p>Sign up to see photos and videos from your friends.</p>
-        <!-- <form action=""> -->
-            <div class = "input-container">
-                <span >Please enter your email</span>
-                <input type="email" name = "email" id = "registerEmail">
-            </div>
 
-            <div class = "input-container">
-                <span>enter username</span>
-                <input type="text" name = "username" id = "registerUsername">
-            </div>
+<body class="login" id="registerPage">
 
-            <div class = "input-container">
-                <span>enter password</span>
-                <input type="text" name = "password" id = "registerPassword">
-            </div>
+    <h1>
+        <div class="header__icon header__icon--logo-big">
+        </div>
+    </h1>
 
-            <div class = "input-container">
-                <span>repeat password</span>
-                <input type="text" name = "rpassword" id = "registerRPassword">
-            </div>
-            <button type = "click" id = "registerSubmitBtn">Sign Up</button>
-        <!-- </form> -->
-    </div>
-    <div class="redirection">
-        Have an account? <a href="/front/login.html">Log in</a>
-    </div>
+    <input class="input" type="email" name="email" id="registerEmail" placeholder="Email">
+    <input class="input" type="text" name="username" id="registerUsername" placeholder="Username">
+    <input class="input" type="text" name="password" id="registerPassword" placeholder="Password">
+    <input class="input" type="text" name="rpassword" id="registerRPassword" placeholder="Repeat password">
+    
+    <button class="button button--blue" id="registerSubmitBtn">Sign Up</button>
+
+    <footer class="footer footer--blue">
+        <a href="/login.html" class='link link--white'>Have an account? &nbsp; Log in</a>
+    </footer>
 
 
-    <script src="/front/JS/register.js"></script>
+    <script src="./assets/js/prod.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/prod.css">
+</head>
+
+<body id="commentsPage">
+
+    <header class='header'>
+        <div class="header__icon header__icon--back" id="commentsBackBtn"></div>
+        <div class="header__icon header__icon--user">Comments</div>
+        <div class="header__icon header__icon--share"></div>
+    </header>
+
+    <section class="comment-input">
+        <div class="user-image user-image--session" style="background-image: url('./assets/images/user.jpg')"></div>
+        <form class="comment-input__input-field" method="POST">
+            <textarea class="comment-input__input" placeholder="Add a comment..."></textarea>
+            <button class="button button--comment-submit">Post</button>
+        </form>
+
+    </section>
+
+    <section class="comments">
+        <article class="comment comment--comments-page">
+            <div class="user-image user-image--post-author" style='background-image:url("./assets/images/user.jpg")'></div>
+
+            <div class="comment__text-part">
+                <a href="" class="comment__author">catFan</a>
+                <span class="comment__content">Buy 1 get 1 free 8x10 commissioned pieces, only 5 slots for the month of
+                    February. To reserve a spot send me a DM. Link to all commission pricing and info in my bio.
+                    -</span>
+            </div>
+        </article>
+    </section>
+
+
+    <footer class='footer'>
+        <a class="footer__item footer__item--home current"></a>
+        <a class="footer__item footer__item--search"></a>
+        <a class="footer__item footer__item--upload"></a>
+        <a class="footer__item footer__item--activity"></a>
+        <a href="profile.html" class="footer__item footer__item--profile"></a>
+    </footer>
+
+    <script src="./assets/js/prod.js"></script>
+</body>
+
+</html>

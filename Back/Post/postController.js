@@ -20,7 +20,13 @@ const getAllPosts=async (req, res) => {
     try {
         let posts = await Post.find()
         .populate('user')
-        //.populate('comments')
+        .populate({
+           path: "comments",
+         options: {limit:5},
+         populate: { path: 'user' }
+         })
+        
+       
         res.json(posts)
     } catch (e) {
         res.status(400).json(e)

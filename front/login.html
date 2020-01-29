@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Open+Sans" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/a68ad82cd1.js"></script>
-        <link rel="stylesheet" href="/front/css/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/prod.css">
 </head>
-<body>
-    <div class="container">
-        
-        <h1 class = "branding">Instagram</h1>
-        <!-- <form action=""> -->
-            <div class = "input-container">
-                <span >Please enter your email</span>
-                <input type="email" name = "email" id = "loginEmail">
-            </div>
 
-            <div class = "input-container">
-                <span>enter password</span>
-                <input type="text" name = "password" id = "loginPassword">
-            </div>
-            <button type = "click" id = "loginSubmitBtn">Log In</button>
-        <!-- </form> -->
+<body class='login' id="loginPage">
+
+    <h1>
+        <div class=" header__icon header__icon--logo-big">
+        </div>
+    </h1>
+
+    <div class="form">
+
+        <div class="button button--blue">Continue with Facebook</div>
+
+        <div class="choice-separator">
+            <div class="choice-separator__line"></div>
+            <div class="choice-separator__text">OR</div>
+            <div class="choice-separator__line"></div>
+        </div>
+
+        <input class='input' type="email" name="email" id="loginEmail" placeholder='Email'>
+        <input class='input' type="text" name="password" id="loginPassword" placeholder='Password'>
+
+        <a href="" class="link">Forgot password?</a>
+
+        <button class='button button--blue' id="loginSubmitBtn">Log In</button>
+
+        <div class='register-link'>Don't have an account? <a href="register.html" class="link link--bold">Sign up</a>
+        </div>
     </div>
-    <div class="redirection">
-        Don't have an account? <a href="/front/register.html">Register</a>
-    </div>
-    <script src="/front/JS/login.js"></script>
+
+    <script src="./assets/js/prod.js"></script>
 </body>
+
 </html>

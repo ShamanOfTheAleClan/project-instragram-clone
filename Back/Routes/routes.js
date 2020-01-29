@@ -18,6 +18,6 @@ router.post('/comment/create', middleware.authenticate, commentController.create
 
 //post routes
 router.post('/post/create', middleware.authenticate, postController.createPost);
-
+router.get('/post/getAllPosts', middleware.authenticate, postController.getAllPosts);
 
 module.exports = router

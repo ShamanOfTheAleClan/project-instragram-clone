@@ -1,20 +1,29 @@
 const mongoose = require('mongoose')
 
-
-const commentSchema = new mongoose.Schema({
-    post: {
+const CommentSchema = new mongoose.Schema({
+    /*post: {
         type: mongoose.Schema.ObjectId, ref: 'Posts'
+    },*/
+    user: {
+        type: mongoose.Schema.ObjectId, ref: 'Users',
+        required: true
     },
     comment: {
         type: String,
         required: true,
     },
-    user: {
-        type: mongoose.Schema.ObjectId, ref: 'Users'
+    /*
+    reply: {
+        type: Boolean,
+        default: false
+    },
+    parent: {
+        type: mongoose.Schema.ObjectId, ref: "Comments"
     }
+*/
 })
 
 
-let Comment = mongoose.model('Comments', commentSchema)
+let Comment = mongoose.model('Comments', CommentSchema)
 
 module.exports = Comment

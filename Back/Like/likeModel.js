@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 
 
 const likeSchema = new mongoose.Schema({
-    likeBy : [{
+    user: [{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Users'
     }],
-    likeContent : [{
+    likeContent: [{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Posts'
     }] 

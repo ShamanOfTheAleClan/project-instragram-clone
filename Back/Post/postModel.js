@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
 
 
 const postSchema = new mongoose.Schema({
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, ref: "Users",
         required: true
     },
     postPic: {
@@ -12,14 +11,13 @@ const postSchema = new mongoose.Schema({
         required: true,
     },
     postDescription: {
-        type: String,
-        required: true,
+        type: String
     },
-    /*tags: [{
+    tags: [{
         type: String
     }],
-    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Users' }],*/
-    //comments:[{type:mongoose.Schema.ObjectId, ref:'Comments'}],
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Users' }],
+    comments:[{type:mongoose.Schema.ObjectId, ref:'Comments'}]
 })
 
 

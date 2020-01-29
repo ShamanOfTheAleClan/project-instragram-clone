@@ -28,7 +28,7 @@ const getAllComments = async (req, res) => {
         let comments = await Comment.find()
             .populate('user')
       
-        res.json(comments)
+        res.json(comments);
     } catch (e) {
         res.status(400).json(e)
     }

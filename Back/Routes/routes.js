@@ -1,10 +1,8 @@
 const router = require("express").Router()
 const userController = require('../User/userController')
-const commentController = require('../Comment/commentController')
+const commentController = require('../Comments/commentController')
 const postController = require('../Post/postController')
 const middleware = require('../middleware/middleware')
-const commentController=require('../Comments/commentController')
-const postController=require('../Post/postController')
 const multer = require('multer');
 
 router.get('/', (req, res) => {
@@ -48,7 +46,7 @@ router.post('/user/login', userController.login)
 //comment routes
 router.post('/comment/create',middleware.authenticate, commentController.createComment)
 //get all comments
-router.get('/comment/getAllComments',middleware.authenticate, commentController.getAllComments)
+router.get('/comment/getAllComments', middleware.authenticate, commentController.getAllComments)
 //post routes
 router.post('/post/create', middleware.authenticate, postController.createPost);
 router.get('/post/getAllPosts',middleware.authenticate, postController.getAllPosts)

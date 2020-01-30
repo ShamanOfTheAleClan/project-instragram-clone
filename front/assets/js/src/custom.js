@@ -183,7 +183,7 @@ if (!!feedPage) {
             }
         }).then((response) => {
             console.log(response);
-            
+
             if (!response.ok) {
                 throw Error(response);
             }
@@ -206,17 +206,18 @@ if (!!feedPage) {
                 postAuthorName.innerText = myJson[i].user.username;
 
 
-                let postImage = doc.create('img', post, 'post-image', 0, { src: "../"+myJson[i].postPic });
+                let postImage = doc.create('img', post, 'post-image', 0, { src: "../" + myJson[i].postPic });
 
 
                 let postInteractions = doc.create('section', post, 'post-interactions');
 
                 let interactionIcons = doc.create('div', postInteractions, 'interaction-icons');
                 let interactionsIconsLike = doc.create('div', interactionIcons, 'interaction-icons__like');
-                let ineteractionIconsComment = doc.create('div', interactionIcons, 'interaction-icons__comment', 0, { 'data-parentPost': myJson[i]._id });
+                let interactionIconsComment = doc.create('div', interactionIcons, 'interaction-icons__comment', 0, { 'data-parentPost': myJson[i]._id });
+                interactionIconsComment.addEventListener('click', (e) => { window.location.href = `./comments.html?${myJson[i]._id}` })
                 let interactionIconsShare = doc.create('div', interactionIcons, 'interaction-icons__share');
                 let likeCount = doc.create('p', postInteractions, ['count', 'count--likes']);
-                likeCount.innerText = myJson[i].likes.length;
+                likeCount.innerText = myJson[i].likes.length + " likes";
 
                 let postComments = doc.create('div', postInteractions, 'post-comments');
                 let postDescription = doc.create('div', postComments, 'comment');
@@ -235,7 +236,7 @@ if (!!feedPage) {
                     commentText.innerText = myJson[i].comments[j].comment;
                 }
 
-                
+
 
                 // commentButton.addEventListener("click", () => {
                 //     newCommentInput.setAttribute("id", "comment")
@@ -263,7 +264,6 @@ if (!!feedPage) {
 
 
 if (!!commentsPage) {
-    checkifLoggedIn();
 
     const backBtn = document.getElementById('commentsBackBtn');
 
@@ -274,10 +274,13 @@ if (!!commentsPage) {
 
     const createComment = () => {
 
-        let newComment = document.getElementById('comment').value;
+        let newComment = document.getElementById('commentInput').value;
         let token = localStorage.getItem('x-auth');
+        const regex = RegExp(/(?:\?)(.*)/g);
+        const postId = regex.exec(window.location.href)[1];
         let body = {
             comment: newComment,
+            postId: postId,
         }
 
         fetch('http://localhost:3000/instagram/comment/create', {
@@ -293,23 +296,26 @@ if (!!commentsPage) {
                 throw Error(header);
             }
         }).then((response) => {
-            alert('Item added successfully')
+            // alert('Item added successfully')
         }).catch((e) => {
             console.log(e);
-            alert('Adding failed');
+            // alert('Adding failed');
         })
 
     };
 
-    const createComments = () => {
+    const loadComments = () => {
         let list = document.getElementsByClassName('comments');
         let token = localStorage.getItem('x-auth');
+        const regex = RegExp(/(?:\?)(.*)/g);
+        const postId = regex.exec(window.location.href)[1];
         list.innerHTML = '';
         fetch('http://localhost:3000/instagram/comment/getAllComments', {
             method: 'GET',
             headers: {
                 'x-auth': token,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'post-id': postId
             }
         }).then((response) => {
             //console.log(response);
@@ -318,32 +324,35 @@ if (!!commentsPage) {
             }
             return response.json();
         }).then((myJson) => {
-            console.log(myJson)
-            let div = document.getElementsByClassName("comments");
-            div.innerHTML = '';
-            let ul = document.createElement('ul');
+            console.log(myJson);
+
+
+            let commentsSection = doc.id('comments');
 
             for (let i = 0; i < myJson.length; i++) {
-                let li = document.createElement('li');
-                let p = document.createElement('p');
-                p.textContent = myJson[i].user.username + "  " + myJson[i].comment;
-                li.appendChild(p);
-                ul.appendChild(li);
-            }
-            document.getElementsByClassName('comments')[0].appendChild(ul);
+                let comment = doc.create('article', commentsSection, ['comment', 'comment--comments-page']);
+                let userImage = doc.create('div', comment, ['user-image', 'user-image--post-author'],{ 'background-image': 'url("./assets/images/user.jpg")' });
+                let textPart = doc.create('div', comment, 'comment__text-part');
+                let commentAuthor = doc.create('a', textPart, 'comment__author');
+                commentAuthor.innerText = myJson[i].user.username;
 
+                let commentContent = doc.create('span', textPart, 'comment__content');
+                commentContent.innerText = myJson[i].comment;
+            }
         }).catch((e) => {
             console.log(e);
         })
 
     };
-    createComments();
+    loadComments();
 
 
     const commentBtn = document.getElementById('postComment');
 
     commentBtn.addEventListener('click', () => {
         createComment();
-        location.reload();
+        doc.id('comments').innerHTML = '';
+        loadComments();
+        // location.reload();
     });
 }

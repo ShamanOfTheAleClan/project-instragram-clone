@@ -72,10 +72,11 @@
 
 .comment {
     border-bottom: 1px solid #dbdbdb;
-    padding: 20px 15px;
+    
 
     &--comments-page {
     display: flex;
+    padding: 20px 15px;
     }
 
     &__author {

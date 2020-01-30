@@ -1,0 +1,27 @@
+.upload-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.share {
+    font-weight: 300;
+    font-size: 16px;
+    color: #3897f0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+
+#postDesc {
+    height: 50px;
+}
+
+.newpost {
+    margin:10px
+}
+
+

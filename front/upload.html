@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/prod.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="upload-header">
+            <a class="newpost">New Post</a>
+            <a href="profile.html" class="share">Share</a>
+        </div> 
+    </header>
+
+    <div class="uploadbody">
+    <input class="input" id="postDesc" type="text" name="description" placeholder="Write a caption...">
+    <input type="file" name="" id="submitedFile" class="input" accept="image/jpg, image/gif, image/jpeg, image/png">
+    <input type="button" value="Upload" class='input-submit' id='submitBtn'>
+        </div>
+</body>
+<script>
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let submitetFile = document.getElementById('submitedFile');
+        let token = localStorage.getItem('x-auth');
+        let data = new FormData()
+        data.append('avatar', submitetFile.files[0])
+
+
+        fetch('http://localhost:3000/instagram/user/uploadFile', {
+            method: 'POST',
+            body: data,
+            headers: {
+
+                'x-auth': token,
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+
+    })
+
+</script>
+
+</html>

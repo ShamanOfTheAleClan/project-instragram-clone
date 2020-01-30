@@ -1,7 +1,8 @@
 const User = require('./userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const config = require('../config/config')
+const config = require('../config/config');
+const Post = require('../Post/postModel');
 
 
 let registerUser = (req, res) => {
@@ -30,12 +31,12 @@ const getAll = async (req, res) => {
 
 const getSingleUser = async (req, res) => {
 
-    let id = req.params.id
+    let id = req.params.id;
     try {
         let user = await User.findById(id)
         res.json(user)
     } catch (e) {
-        res.status(400).jsn(e)
+        res.status(400).json(e)
     }
 
 }
@@ -74,6 +75,18 @@ const login = async (req, res) => {
     }
 }
 
+const loadProfile = async (request, response) => {
+    try {
+        let user = await request.user
+        let posts = await Post.find({user: user.id})
+        console.log(posts);
+
+        response.json(posts);
+    } catch (e) {
+        response.status(400).json(e);
+    }
+}
+
 
 const uploadFile = async (request, response) => {
 
@@ -81,12 +94,14 @@ const uploadFile = async (request, response) => {
         return response.status(400).json('Failed to save file');
     }
     else {
-        response.json(true);
+        
 
         console.log('****************************************');
         console.log('Uploaded file: ', request.file);
         try {
-
+            // console.log('################################');
+            // console.log(request);
+            // console.log('################################');
             let user = request.user;
             let filename = request.file.filename;
             let filepath = request.file.path;
@@ -102,6 +117,15 @@ const uploadFile = async (request, response) => {
             console.log('Uploaded by: ', user);
             console.log('****************************************');
 
+            let post = new Post()
+            post.user = request.user._id;
+            post.postPic = filepath;
+            post.postDescription = request.body.postDescription;
+
+            let savedPost = await post.save();
+
+            res.json(savedPost);
+            // response.json(true);
         } catch (error) {
             response.status(400).json(error);
         }
@@ -115,4 +139,5 @@ module.exports = {
     getSingleUser,
     login,
     uploadFile,
+    loadProfile,
 }

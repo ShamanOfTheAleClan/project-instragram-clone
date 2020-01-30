@@ -1,40 +1,38 @@
-const checkifLoggedIn = () => {
-    let token = localStorage.getItem('x-auth');
-    console.log(token)
-    if (!token) {
-        window.location.href = "../login.html";
-    }
-};
+// const checkifLoggedIn = () => {
+//     let token = localStorage.getItem('x-auth');
+//     console.log(token)
+//     if (!token) {
+//         window.location.href = "../login.html";
+//     }
+// };
 
-checkifLoggedIn();
+// checkifLoggedIn();
 
 const createPost = () => {
-    
-    let newPost = document.getElementById('postDesc').value
 
-    let token = localStorage.getItem('x-auth');
-    let body = {
-        comment: newComment,
-        postId:postId
-    }
-    
-    fetch('http://localhost:3000/instagram/comment/create', {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-            'x-auth': token,
-            'Content-Type': 'application/json'
-        }
-    }).then((header) => {
-        //console.log(header);
-        if (!header.ok) {
-            throw Error(header);
-        }
-    }).then((response) => {
-        alert('Item added successfully')
-    }).catch((e) => {
-       // console.log(e);
-        alert('Adding failed');
+const submitBtn = document.getElementById('submitBtn');
+
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let submitetFile = document.getElementById('submitedFile');
+        let postDescription = doc.id('postDesc');
+        let token = localStorage.getItem('x-auth');
+
+        let data = new FormData()
+        data.append('avatar', submitetFile.files[0]);
+        data.append('postDescription', postDescription);
+
+        fetch('http://localhost:3000/instagram/user/uploadFile', {
+            method: 'POST',
+            body: data,
+            headers: {
+
+                'x-auth': token,
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+
     })
-   
 };

@@ -11,46 +11,32 @@
 
 </head>
 
-<body>
+<body id="postUpload">
     <header>
         <div class="upload-header">
             <a class="newpost">New Post</a>
-            <a href="profile.html" class="share">Share</a>
-        </div> 
+        </div>
     </header>
 
     <div class="uploadbody">
-    <input class="input" id="postDesc" type="text" name="description" placeholder="Write a caption...">
-    <input type="file" name="" id="submitedFile" class="input" accept="image/jpg, image/gif, image/jpeg, image/png">
-    <input type="button" value="Upload" class='input-submit' id='submitBtn'>
-        </div>
+        <input class="input" id="postDesc" type="text" name="description" placeholder="Write a caption...">
+        <input type="file" name="" id="submitedFile" class="input" accept="image/jpg, image/gif, image/jpeg, image/png">
+        <input type="button" value="Upload" class='button button--blue' id='submitBtn'>
+    </div>
+
+
+    <footer class='footer'>
+
+        <a href="index.html" class="footer__item footer__item--home"></a>
+        <a class="footer__item footer__item--search"></a>
+        <a href="upload.html" class="footer__item footer__item--upload current"></a>
+        <a class="footer__item footer__item--activity"></a>
+        <a href="profile.html" class="footer__item footer__item--profile"></a>
+
+    </footer>
+
+    <script src="./assets/js/prod.js"></script>
+
 </body>
-<script>
-
-    const submitBtn = document.getElementById('submitBtn');
-
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let submitetFile = document.getElementById('submitedFile');
-        let token = localStorage.getItem('x-auth');
-        let data = new FormData()
-        data.append('avatar', submitetFile.files[0])
-
-
-        fetch('http://localhost:3000/instagram/user/uploadFile', {
-            method: 'POST',
-            body: data,
-            headers: {
-
-                'x-auth': token,
-            }
-        }).catch((error) => {
-            console.log(error);
-        })
-
-    })
-
-</script>
 
 </html>

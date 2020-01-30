@@ -43,6 +43,7 @@ let obj = {
 // user routes
 router.post('/user/register', userController.registerUser);
 router.post('/user/login', userController.login)
+router.get('/user/profile', middleware.authenticate, userController.loadProfile);
 //comment routes
 router.post('/comment/create',middleware.authenticate, commentController.createComment)
 //get all comments

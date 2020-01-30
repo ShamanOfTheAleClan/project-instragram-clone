@@ -7,7 +7,6 @@ const createPost = async (req,res) =>{
     post.user = req.user._id
     post.postPic = data.postPic
     post.postDescription = data.postDescription
-    // post.comments = req.comments._id
 
     try {
         let savedPost = await post.save()

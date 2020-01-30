@@ -20,16 +20,16 @@ const userSchema = new mongoose.Schema({
         type: String,//bus saugomas URL?
         // required: true,
     },
-    // posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
     // likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Likes' }],
-    // following: [{
-    //     _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
-    //     username: { type: String, ref: 'Users' }
-    // }],
-    // followers: [{
-    //     _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
-    //     username: { type: String, ref: 'Users' }
-    // }],
+    following: [{
+        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+        username: { type: String, ref: 'Users' }
+    }],
+    followers: [{
+        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+        username: { type: String, ref: 'Users' }
+    }],
     photos: [{
         filename: String,
         filepath: String,

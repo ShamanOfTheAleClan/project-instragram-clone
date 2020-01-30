@@ -41,9 +41,9 @@ const doc = {
 
 const checkifLoggedIn = () => {
     let token = localStorage.getItem('x-auth');
-    console.log(token)
+    console.log(token);
     if (!token) {
-        window.location.href = "../login.html";
+        window.location.href = "./login.html";
     }
 };
 
@@ -52,8 +52,13 @@ const registerPage = document.getElementById('registerPage');
 const loginPage = document.getElementById('loginPage');
 const feedPage = document.getElementById('feedPage');
 const commentsPage = document.getElementById('commentsPage');
+const postUploadPage = doc.id('postUpload');
 
-if (!loginPage || !registerPage) checkifLoggedIn();
+if (!!loginPage || !!registerPage) {
+
+} else {
+    checkifLoggedIn();
+}
 
 
 // Profile page -> Options
@@ -71,6 +76,40 @@ if (!!profilePage) {
     optionsOpenBtn.addEventListener('click', () => {
         optionsWindow.style.removeProperty('display');
     });
+
+    let token = localStorage.getItem('x-auth');
+    let profileGallery = doc.id('profileGallery');
+    fetch('http://localhost:3000/instagram/user/profile', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-auth': token
+        }
+    }).then((response) => {
+        console.log(response);
+        if (!response) throw Error();
+        else {
+            return response.json();
+        }
+        }).then((response) => {
+            let postCount = doc.id('postCount');
+            postCount.innerText = response.length;
+
+            let followingCount = doc.id('followingCount');
+            let followersCount = doc.id('followersCount');
+
+            followingCount.innerText = '0';
+            followersCount.innerText = '0';
+
+        for (let i = 0; i < response.length; i++) {
+            let postImage = doc.create('img', profileGallery, 'gallery-photo', 0, { src: "../" + response[i].postPic });
+        }
+
+
+    }).catch((error) => {
+        console.log(error);
+    })
+
 }
 
 
@@ -196,7 +235,9 @@ if (!!feedPage) {
             let feed = doc.id('feed');
 
             for (let i = 0; i < myJson.length; i++) {
-                let post = doc.create('article', feed, "post");
+                let post = doc.create('article', 0, "post");
+
+                feed.insertBefore(post, feed.firstChild);
 
 
                 let postHeader = doc.create('section', post, 'post-header');
@@ -331,7 +372,7 @@ if (!!commentsPage) {
 
             for (let i = 0; i < myJson.length; i++) {
                 let comment = doc.create('article', commentsSection, ['comment', 'comment--comments-page']);
-                let userImage = doc.create('div', comment, ['user-image', 'user-image--post-author'],{ 'background-image': 'url("./assets/images/user.jpg")' });
+                let userImage = doc.create('div', comment, ['user-image', 'user-image--post-author'], { 'background-image': 'url("./assets/images/user.jpg")' });
                 let textPart = doc.create('div', comment, 'comment__text-part');
                 let commentAuthor = doc.create('a', textPart, 'comment__author');
                 commentAuthor.innerText = myJson[i].user.username;
@@ -349,10 +390,51 @@ if (!!commentsPage) {
 
     const commentBtn = document.getElementById('postComment');
 
-    commentBtn.addEventListener('click', () => {
+    commentBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         createComment();
-        doc.id('comments').innerHTML = '';
-        loadComments();
-        // location.reload();
+        // doc.id('comments').innerHTML = '';
+        // try {
+        //     loadComments();
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        location.reload();
     });
 }
+
+// Post upload page
+
+if (!!postUploadPage) {
+
+    const submitBtn = document.getElementById('submitBtn');
+
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let submitetFile = document.getElementById('submitedFile');
+        let postDescription = doc.id('postDesc').value;
+        let token = localStorage.getItem('x-auth');
+
+        let data = new FormData()
+        data.append('avatar', submitetFile.files[0]);
+        data.append('postDescription', postDescription);
+
+        fetch('http://localhost:3000/instagram/user/uploadFile', {
+            method: 'POST',
+            body: data,
+            headers: {
+
+                'x-auth': token,
+            }
+
+
+        }
+
+        ).catch((error) => {
+            console.log(error);
+        });
+        window.location.href = './index.html';
+
+    })
+};

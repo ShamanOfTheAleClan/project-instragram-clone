@@ -52,13 +52,14 @@
 .profile-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .gallery-photo {
     width: 32vw;
     height: 32vw;
-    background-size: cover;
+    // background-size: cover;
+    object-fit: cover;
 }
 
 .options {

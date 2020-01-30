@@ -89,10 +89,14 @@ const uploadFile = async (request, response) => {
 
             let user = request.user;
             let filename = request.file.filename;
+            let filepath = request.file.path;
 
             user.photos.push({
-                filename
+                filename,
+                filepath
             });
+
+            user.save();
 
             console.log('--------------------------');
             console.log('Uploaded by: ', user);

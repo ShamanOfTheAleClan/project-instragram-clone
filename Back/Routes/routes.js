@@ -49,7 +49,7 @@ router.post('/comment/create',middleware.authenticate, commentController.createC
 router.get('/comment/getAllComments', middleware.authenticate, commentController.getAllComments)
 //post routes
 router.post('/post/create', middleware.authenticate, postController.createPost);
-router.get('/post/getAllPosts',middleware.authenticate, postController.getAllPosts)
+router.get('/post/getAllPosts', middleware.authenticate, postController.getAllPosts)
 router.post('/user/login', userController.login);
 router.post('/user/uploadFile', middleware.authenticate, multer(obj).single('avatar'), userController.uploadFile);
 

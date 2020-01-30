@@ -1,12 +1,13 @@
 const Post  = require('./postModel')
 
 const createPost = async (req,res) =>{
+    console.log(req.user._id);
     let data = req.body
     let post = new Post()
     post.user = req.user._id
     post.postPic = data.postPic
     post.postDescription = data.postDescription
-    post.comments = req.comments._id
+    // post.comments = req.comments._id
 
     try {
         let savedPost = await post.save()

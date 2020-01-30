@@ -10,8 +10,8 @@ checkifLoggedIn();
 
 const createPost = () => {
     
-    let newPost = document.getElementById('comment').value
-    console.log(postId)
+    let newPost = document.getElementById('postDesc').value
+
     let token = localStorage.getItem('x-auth');
     let body = {
         comment: newComment,

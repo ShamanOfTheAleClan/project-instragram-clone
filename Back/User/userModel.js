@@ -15,23 +15,24 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    /*admin: Boolean,
+    // admin: Boolean,
     profPic: {
         type: String,//bus saugomas URL?
-        required: true,
+        // required: true,
     },
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
-    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Likes' }],
-    following: [{
-        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
-        username: { type: String, ref: 'Users' }
-    }],
-    followers: [{
-        _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
-        username: { type: String, ref: 'Users' }
-    }],*/
+    // posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }],
+    // likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Likes' }],
+    // following: [{
+    //     _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+    //     username: { type: String, ref: 'Users' }
+    // }],
+    // followers: [{
+    //     _id: { type: [mongoose.Schema.Types.ObjectId], ref: 'Users' },
+    //     username: { type: String, ref: 'Users' }
+    // }],
     photos: [{
         filename: String,
+        filepath: String,
     }],
     tokens: [{
         access: {
